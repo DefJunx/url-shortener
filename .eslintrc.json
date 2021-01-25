@@ -17,8 +17,8 @@
   "rules": {
     "prettier/prettier": "error",
     "import/extensions": [
+      2,
       "always",
-      "never",
       {
         "ignorePackages": true
       }

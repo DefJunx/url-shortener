@@ -1,39 +1,40 @@
 {
-    "name": "@cactustech/url-shortener",
-    "version": "1.0.0",
-    "description": "Shortens URLs, that's all",
-    "main": "src/server.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "type": "module",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/DefJunx/url-shortener.git"
-    },
-    "keywords": [
-        "url",
-        "shortener",
-        "cactustech"
-    ],
-    "author": "Daniele Cencig",
-    "license": "UNLICENSED",
-    "bugs": {
-        "url": "https://github.com/DefJunx/url-shortener/issues"
-    },
-    "homepage": "https://github.com/DefJunx/url-shortener#readme",
-    "devDependencies": {
-        "eslint": "^7.18.0",
-        "eslint-config-airbnb-base": "^14.2.1",
-        "eslint-config-prettier": "^7.2.0",
-        "eslint-plugin-import": "^2.22.1",
-        "eslint-plugin-prettier": "^3.3.1",
-        "prettier": "^2.2.1"
-    },
-    "dependencies": {
-        "dotenv": "^8.2.0",
-        "express": "^4.17.1",
-        "helmet": "^4.4.1",
-        "morgan": "^1.10.0"
-    }
+  "name": "@cactustech/url-shortener",
+  "version": "1.0.0",
+  "description": "Shortens URLs, that's all",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DefJunx/url-shortener.git"
+  },
+  "keywords": [
+    "url",
+    "shortener",
+    "cactustech"
+  ],
+  "author": "Daniele Cencig",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/DefJunx/url-shortener/issues"
+  },
+  "homepage": "https://github.com/DefJunx/url-shortener#readme",
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.4.1",
+    "morgan": "^1.10.0",
+    "nanoid": "^3.1.20"
+  }
 }
