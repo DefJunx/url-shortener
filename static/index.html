@@ -4,8 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CactusShort</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
   </head>
   <body>
-    Hello moto
+    <h1>Cactus Needles</h1>
+    <h2>Shorten your URLs, get them as tiny as needles</h2>
+    <main>
+      <h3>URL To shorten:</h3>
+      <input
+        id="url"
+        type="text"
+        required
+        pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
+      />
+      <button class="primary" type="button">Shorten!!</button>
+      <div class="shortened_container hide"></div>
+    </main>
   </body>
 </html>
