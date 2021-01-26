@@ -1,6 +1,7 @@
 import monk from "monk";
+import Logger from "../lib/logger.js";
 
-console.log("process.env.DB_URL:", process.env.DB_URL);
+Logger.debug(`process.env.DB_URL: ${process.env.DB_URL}`);
 
 const db = monk(process.env.DB_URL, { authSource: "admin" });
 

@@ -1,11 +1,13 @@
 import { Router } from "express";
 import { nanoid } from "nanoid";
+
 import { insertNewUrl } from "./db/urls.js";
+import Logger from "./lib/logger.js";
 
 const apiRouter = Router();
 
 apiRouter.post("/url", (req, res) => {
-    console.log(req.body);
+    Logger.debug(req.body);
 
     const id = nanoid();
     const uri = {
@@ -16,7 +18,7 @@ apiRouter.post("/url", (req, res) => {
     insertNewUrl(uri)
         .then((_) => res.status(201).json({ id }))
         .catch((e) => {
-            console.log(e);
+            Logger.emerg(e);
             res.status(500).json({ ...e });
         });
 });
