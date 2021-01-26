@@ -9,7 +9,7 @@ const urls = db.get("urls");
  */
 
 /**
- * Retrieve url from DB
+ * Retrieve url object from DB
  *
  * @param {string} id
  * @returns {Promise<UrlObject>}
@@ -19,7 +19,7 @@ export async function getUrl(id) {
 }
 
 /**
- * Inserts url in DB
+ * Inserts url object in DB
  *
  * @param {UrlObject} urlObject
  */
@@ -34,4 +34,11 @@ export async function insertNewUrl(urlObject) {
     }
 
     return Promise.reject(new Error("Id already in use"));
+}
+
+/**
+ * Flushes all documents on collection
+ */
+export async function flushAll() {
+    return urls.remove({});
 }
