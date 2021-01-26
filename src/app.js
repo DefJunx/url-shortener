@@ -6,6 +6,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 
 import apiRouter from "./api.js";
+import { getUrl } from "./db/urls.js";
 
 dotenv.config();
 
@@ -27,8 +28,15 @@ app.get("/:uriId", (req, res) => {
         return;
     }
 
-    console.log("checking for uriId: ", uriId);
-    res.sendFile(path.resolve(currPath, "..", "static", "index.html")); // TODO: Replace with db check logic etc.
+    getUrl
+        .then((url) => {
+            console.log("found url in db mongo");
+            res.json({ url });
+        })
+        .catch((e) => {
+            console.log(e);
+            res.json({ ...e });
+        });
 });
 
 export default app;

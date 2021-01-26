@@ -4,7 +4,8 @@
   "description": "Shortens URLs, that's all",
   "main": "src/server.js",
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "start:dev": "nodemon"
   },
   "type": "module",
   "repository": {
@@ -34,6 +35,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^4.4.1",
+    "monk": "^7.3.2",
     "morgan": "^1.10.0",
     "nanoid": "^3.1.20"
   }

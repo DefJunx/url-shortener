@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  app:
+    depends_on:
+      - mongo
+    build:
+      context: ./
+      target: dev
+    volumes:
+      - .:/app
+    command: npm run start:dev
+    ports:
+      - "1337:1337"
+    environment:
+      DB_URL: root:admin@mongo/cactustech
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: admin
