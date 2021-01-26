@@ -13,14 +13,12 @@ apiRouter.post("/url", (req, res) => {
         url: req.body.url,
     };
 
-    insertNewUrl
-        .then((_) => res.sendStatus(201))
+    insertNewUrl(uri)
+        .then((_) => res.status(201).json({ id }))
         .catch((e) => {
             console.log(e);
             res.status(500).json({ ...e });
         });
-
-    res.json({ ...uri });
 });
 
 export default apiRouter;

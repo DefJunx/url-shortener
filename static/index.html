@@ -17,13 +17,16 @@
     <h2>Shorten your URLs, get them as tiny as needles</h2>
     <main>
       <h3>URL To shorten:</h3>
-      <input
-        id="url"
-        type="text"
-        required
-        pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
-      />
-      <button class="primary" type="button">Shorten!!</button>
+      <form action="#" id="url-form">
+        <input
+          id="url"
+          type="text"
+          required
+          pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
+          title="must be a valid URL"
+        />
+        <button class="primary" type="submit">Shorten!!</button>
+      </form>
       <div class="shortened_container hide"></div>
     </main>
   </body>

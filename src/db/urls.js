@@ -12,7 +12,7 @@ const urls = db.get("urls");
  * Retrieve url from DB
  *
  * @param {string} id
- * @returns {UrlObject}
+ * @returns {Promise<UrlObject>}
  */
 export async function getUrl(id) {
     return urls.findOne({ id });
@@ -26,7 +26,10 @@ export async function getUrl(id) {
 export async function insertNewUrl(urlObject) {
     const url = await getUrl(urlObject.id);
 
+    console.log("url: ", url);
+
     if (!url) {
+        console.log("no url, proceed");
         return urls.insert(urlObject);
     }
 
