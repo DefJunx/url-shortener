@@ -4,15 +4,17 @@ import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
 
+dotenv.config();
+
+/* eslint-disable import/first */
 import apiRouter from "./api.js";
 import { flushAll, getUrl } from "./db/urls.js";
 import db from "./db/db.js";
 import Logger from "./lib/logger.js";
 import { rootPath } from "./constants.js";
+/* eslint-enable import/first */
 
 const FLUSHING_INTERVAL = 60 * 60 * 24 * 3;
-
-dotenv.config();
 
 const app = express();
 
