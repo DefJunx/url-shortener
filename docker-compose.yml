@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  app:
+  cactusshort:
     depends_on:
       - db
     env_file: ".env"
