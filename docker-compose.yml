@@ -9,6 +9,8 @@ services:
       context: .
     volumes:
       - ./logs:/var/logs
+    networks:
+      - app_network
   db:
     image: mongo
     restart: always
@@ -16,3 +18,9 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: admin
       MONGO_INITDB_DATABASE: cactustech
+    networks:
+      - app_network
+networks:
+  app_network:
+    name: ${DOCKER_NETWORK}
+    external: ${DOCKER_IS_EXTERNAL_NETWORK}
