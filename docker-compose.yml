@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  app:
+    depends_on:
+      - db
+    env_file: ".env"
+    build:
+      context: .
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./logs:/var/logs
+  db:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_DATABASE: cactustech

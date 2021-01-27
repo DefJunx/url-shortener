@@ -22,10 +22,10 @@ db.then(() => {
     }, FLUSHING_INTERVAL);
 }).catch((e) => Logger.emerg(e));
 
-app.use(morgan("combined"));
+app.use(morgan("combined", { stream: Logger.stream }));
 app.use(helmet());
 app.use(express.json());
-app.use(express.static(path.resolve(__dirname, "static")));
+app.use(express.static(path.resolve("static")));
 app.use("/api", apiRouter);
 
 app.get("/:uriId", (req, res) => {
@@ -38,7 +38,7 @@ app.get("/:uriId", (req, res) => {
             res.redirect(dbEntry.url);
         })
         .catch((e) => {
-            Logger.emerg(e);
+            Logger.emerg(`getUrl unhandled exception: ${JSON.stringify(e)}`);
             res.json({ ...e });
         });
 });

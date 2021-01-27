@@ -8,7 +8,7 @@ const logPath =
 
 const Logger = winston.createLogger({
     levels: winston.config.syslog.levels,
-    level: "warn",
+    level: "info",
     handleExceptions: true,
     transports: [
         new winston.transports.File({
@@ -20,6 +20,12 @@ const Logger = winston.createLogger({
         }),
     ],
 });
+
+Logger.stream = {
+    write(message, encoding) {
+        Logger.debug(message.trim());
+    },
+};
 
 //
 // If we're not in production then log to the `console` with the format:

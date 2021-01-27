@@ -1,3 +1,4 @@
+const Logger = require("../lib/logger");
 const db = require("./db");
 
 const urls = db.get("urls");
@@ -26,10 +27,10 @@ async function getUrl(id) {
 async function insertNewUrl(urlObject) {
     const url = await getUrl(urlObject.id);
 
-    console.log("url: ", url);
+    Logger.info(`url: ${JSON.stringify(url)}`);
 
     if (!url) {
-        console.log("no url, proceed");
+        Logger.info("no url, proceed");
         return urls.insert(urlObject);
     }
 

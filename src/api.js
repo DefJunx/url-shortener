@@ -16,7 +16,7 @@ apiRouter.post("/url", (req, res) => {
     };
 
     insertNewUrl(uri)
-        .then((_) => res.status(201).json({ id }))
+        .then(() => res.status(201).json({ id }))
         .catch((e) => {
             Logger.emerg(e);
             res.status(500).json({ ...e });
