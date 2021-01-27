@@ -1,7 +1,10 @@
-import path from "path";
-import winston from "winston";
+const path = require("path");
+const winston = require("winston");
 
-import { rootPath as currPath } from "../constants.js";
+console.log("porcodio: ", process.env.NODE_ENV);
+
+const logPath =
+    process.env.NODE_ENV === "development" ? __dirname : "/var/logs/";
 
 const Logger = winston.createLogger({
     levels: winston.config.syslog.levels,
@@ -9,11 +12,11 @@ const Logger = winston.createLogger({
     handleExceptions: true,
     transports: [
         new winston.transports.File({
-            filename: path.resolve(currPath, "..", "error.log"),
+            filename: path.resolve(logPath, "error.log"),
             level: "error",
         }),
         new winston.transports.File({
-            filename: path.resolve(currPath, "..", "combined.log"),
+            filename: path.resolve(logPath, "combined.log"),
         }),
     ],
 });
@@ -32,4 +35,4 @@ if (process.env.NODE_ENV !== "production") {
     Logger.level = "debug";
 }
 
-export default Logger;
+module.exports = Logger;

@@ -1,7 +1,11 @@
-import app from "./app.js";
-import Logger from "./lib/logger.js";
+/* eslint-disable import/first */
 
-const appPort = process.env.PORT || "1337";
+require("dotenv").config();
+
+const app = require("./app");
+const Logger = require("./lib/logger.js");
+
+const appPort = process.env.PORT || "9000";
 
 app.listen(appPort, "0.0.0.0", () => {
     Logger.info(`listening on port ${appPort}`);

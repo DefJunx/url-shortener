@@ -7,7 +7,6 @@
     "start": "node .",
     "start:dev": "nodemon"
   },
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DefJunx/url-shortener.git"

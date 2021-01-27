@@ -1,8 +1,8 @@
-import { Router } from "express";
-import { nanoid } from "nanoid";
+const { Router } = require("express");
+const nanoid = require("nanoid");
+const { insertNewUrl } = require("./db/urls");
 
-import { insertNewUrl } from "./db/urls.js";
-import Logger from "./lib/logger.js";
+const Logger = require("./lib/logger.js");
 
 const apiRouter = Router();
 
@@ -23,4 +23,4 @@ apiRouter.post("/url", (req, res) => {
         });
 });
 
-export default apiRouter;
+module.exports = apiRouter;

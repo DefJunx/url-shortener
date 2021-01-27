@@ -1,18 +1,12 @@
-import path from "path";
-import dotenv from "dotenv";
-import express from "express";
-import helmet from "helmet";
-import morgan from "morgan";
+const path = require("path");
+const express = require("express");
+const helmet = require("helmet");
+const morgan = require("morgan");
 
-dotenv.config();
-
-/* eslint-disable import/first */
-import apiRouter from "./api.js";
-import { flushAll, getUrl } from "./db/urls.js";
-import db from "./db/db.js";
-import Logger from "./lib/logger.js";
-import { rootPath } from "./constants.js";
-/* eslint-enable import/first */
+const apiRouter = require("./api");
+const { flushAll, getUrl } = require("./db/urls");
+const db = require("./db/db.js");
+const Logger = require("./lib/logger.js");
 
 const FLUSHING_INTERVAL = 60 * 60 * 24 * 3;
 
@@ -31,7 +25,7 @@ db.then(() => {
 app.use(morgan("combined"));
 app.use(helmet());
 app.use(express.json());
-app.use(express.static(path.resolve(rootPath, "..", "static")));
+app.use(express.static(path.resolve(__dirname, "static")));
 app.use("/api", apiRouter);
 
 app.get("/:uriId", (req, res) => {
@@ -49,4 +43,4 @@ app.get("/:uriId", (req, res) => {
         });
 });
 
-export default app;
+module.exports = app;

@@ -1,4 +1,4 @@
-import db from "./db.js";
+const db = require("./db");
 
 const urls = db.get("urls");
 
@@ -14,7 +14,7 @@ const urls = db.get("urls");
  * @param {string} id
  * @returns {Promise<UrlObject>}
  */
-export async function getUrl(id) {
+async function getUrl(id) {
     return urls.findOne({ id });
 }
 
@@ -23,7 +23,7 @@ export async function getUrl(id) {
  *
  * @param {UrlObject} urlObject
  */
-export async function insertNewUrl(urlObject) {
+async function insertNewUrl(urlObject) {
     const url = await getUrl(urlObject.id);
 
     console.log("url: ", url);
@@ -39,6 +39,8 @@ export async function insertNewUrl(urlObject) {
 /**
  * Flushes all documents on collection
  */
-export async function flushAll() {
+async function flushAll() {
     return urls.remove({});
 }
+
+module.exports = { getUrl, flushAll, insertNewUrl };
