@@ -1,8 +1,6 @@
 const path = require("path");
 const winston = require("winston");
 
-console.log("porcodio: ", process.env.NODE_ENV);
-
 const logPath =
     process.env.NODE_ENV === "development" ? __dirname : "/var/logs/";
 
