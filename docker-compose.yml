@@ -7,13 +7,15 @@ services:
     env_file: ".env"
     build:
       context: .
-    ports:
-      - "9000:9000"
+    networks:
+      - ${DOCKER_NETWORK}
     volumes:
       - ./logs:/var/logs
   db:
     image: mongo
     restart: always
+    networks:
+      - ${DOCKER_NETWORK}
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: admin
