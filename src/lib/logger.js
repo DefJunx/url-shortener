@@ -1,10 +1,7 @@
 const path = require("path");
 const winston = require("winston");
 
-const logPath =
-    process.env.NODE_ENV === "development"
-        ? path.resolve(__dirname, "../logs")
-        : "/var/logs/";
+const logPath = path.resolve(__dirname, "../logs");
 
 const Logger = winston.createLogger({
     levels: winston.config.syslog.levels,

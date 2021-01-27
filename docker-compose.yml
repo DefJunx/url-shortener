@@ -5,8 +5,6 @@ services:
     depends_on:
       - db
     env_file: ".env"
-    networks:
-      - url_shortener
     build:
       context: .
     ports:
@@ -16,11 +14,7 @@ services:
   db:
     image: mongo
     restart: always
-    networks:
-      - url_shortener
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: admin
       MONGO_INITDB_DATABASE: cactustech
-networks:
-  url_shortener:
