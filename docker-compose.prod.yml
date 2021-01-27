@@ -8,6 +8,7 @@ services:
       target: production
     volumes:
       - .:/app
+      - node_modules:/app/node_modules
     command: npm start
     ports:
       - "9000:9000"
@@ -15,3 +16,5 @@ services:
       DB_URL: root:admin@mongo/cactustech
       PORT: 9000
       NODE_ENV: production
+volumes:
+  node_modules:
