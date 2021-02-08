@@ -5,6 +5,8 @@ services:
     depends_on:
       - db
     env_file: ".env"
+    ports:
+      - ${PORT}:${PORT}
     build:
       context: .
     volumes:
