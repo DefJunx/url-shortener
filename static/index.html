@@ -13,21 +13,25 @@
     <script defer src="app.js"></script>
   </head>
   <body>
-    <h1>Cactus Needles</h1>
-    <h2>Shorten your URLs, get them as tiny as needles</h2>
     <main>
-      <h3>URL To shorten:</h3>
+      <h1>Cactus Needles</h1>
+      <h2>Shorten your URLs, get them as tiny as needles</h2>
       <form action="#" id="url-form">
-        <input
-          id="url"
-          type="text"
-          required
-          pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
-          title="must be a valid URL"
-        />
-        <button class="primary" type="submit">Shorten!!</button>
+        <label
+          >URL to shorten:
+          <input
+            id="url"
+            type="text"
+            required
+            pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
+            title="Insert a valid URL"
+            placeholder="https://www.example.com/"
+            autofocus
+          />
+        </label>
+        <button class="button" type="submit">Shorten!!</button>
+        <output for="url" class="shortened_container" hidden></output>
       </form>
-      <div class="shortened_container hide"></div>
     </main>
   </body>
 </html>
